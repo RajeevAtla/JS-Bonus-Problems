@@ -37,5 +37,5 @@ pair[] coords2 = {(-9/2, -3*sqrt(3)/2), (-9/2, -sqrt(3)/2), (-9/2, sqrt(3)/2), (
 
 for(int n = 0; n < coords2.length; ++n){
 dot(coords2[n], green);
-label(string(n), (coords2[n]), S);
+label(string(n+18), (coords2[n]), S);
 }
