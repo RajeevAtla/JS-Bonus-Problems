@@ -32,7 +32,7 @@ jobs:
       - name: LaTeX
         uses: dante-ev/latex-action@edge
         with:
-          root_file: Problem 3/solution.tex
+          root_file: Problem 3/solution3.tex
           
       - name: Commit files
         run: |
@@ -40,8 +40,19 @@ jobs:
           git config --local user.name "github-actions[bot]"
           git add .
           git commit -m "add compiled files"
-      
-      - name: push
+        
+      - name: Move files
+        run:
+          rm -rf build
+          mkdir build
+          cd build
+          mkdir 'Problem 3'
+          cd..
+          cd..
+          mv solution3-1.asy 'build/Problem 3'
+          mv solution3.pdf 'build/Problem 3'
+    
+      - name: Push
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
