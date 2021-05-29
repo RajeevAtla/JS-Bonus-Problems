@@ -40,12 +40,6 @@ jobs:
           sudo apt-get install texlive-bibtex-extra
           sudo apt-get install latexmk
           sudo apt-get install biber
-      
-      - name: update LaTeX
-        run: |
-          tlmgr update --self
-          tlmgr update --all
-
 
       # Run latexmk
       - name: LaTeX
