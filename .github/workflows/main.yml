@@ -40,7 +40,7 @@ jobs:
           
       - name: Move files
         run: |
-          rm -rf build
+          rm -rf build && mkdir build
           mv *.asy build/
           mv *.pdf build/
           
