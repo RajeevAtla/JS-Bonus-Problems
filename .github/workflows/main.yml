@@ -42,7 +42,7 @@ jobs:
           git commit -m "add compiled files"
         
       - name: Move files
-        run:
+        run: |
           rm -rf build
           mkdir build
           cd build
