@@ -11,7 +11,7 @@
 \RequirePackage{fancyhdr}
 
 \DeclareOption{sans}{
-    \usepackage[nomath]{sansmathfonts}
+    \renewcommand{\familydefault}{\sfdefault}
 }
 \DeclareOption{mono}{
     \renewcommand{\familydefault}{\ttdefault}
