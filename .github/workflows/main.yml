@@ -43,14 +43,9 @@ jobs:
         
       - name: Move files
         run: |
-          rm -rf build
           mkdir build
-          cd build
-          mkdir 'Problem 3'
-          cd..
-          cd..
-          mv solution3-1.asy 'build/Problem 3'
-          mv solution3.pdf 'build/Problem 3'
+          mv *.asy build/
+          mv *.pdf build/
     
       - name: Push
         uses: ad-m/github-push-action@master
