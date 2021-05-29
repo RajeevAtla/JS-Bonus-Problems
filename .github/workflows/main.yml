@@ -28,6 +28,10 @@ jobs:
           persistent-credentials: false
           fetch-depth: 0
 
+      - name: Asymptote installation
+        run: sudo apt-get install asymptote
+
+
       # Run latexmk
       - name: LaTeX
         uses: dante-ev/latex-action@edge
@@ -36,7 +40,7 @@ jobs:
           
       - name: Move files
         run: |
-          mkdir build
+          rm -rf build
           mv *.asy build/
           mv *.pdf build/
           
