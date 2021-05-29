@@ -47,7 +47,7 @@ jobs:
       - name: LaTeX
         run: |
           cd 'Problem 3'
-          rm 'solution-1.tex'
+          rm 'solution3-1.tex'
           latexmk -pdf -f
           
       - name: Commit files
