@@ -28,21 +28,25 @@ jobs:
           persistent-credentials: false
           fetch-depth: 0
 
-      - name: Asymptote installation
-        run: sudo apt-get install asymptote
+      - name: Install packages
+        run: |
+          sudo apt-get install asymptote
+          sudo apt-get install ghostscript
+          sudo apt-get install tree
+          sudo apt-get install freeglut3
+          sudo apt-get install texlive-latex-recommended
+          sudo apt-get install texlive-latex-extra
+          sudo apt-get install texlive-science
+          sudo apt-get install texlive-bibtex-extra
+          sudo apt-get install latexmk
+          sudo apt-get install biber
 
 
       # Run latexmk
       - name: LaTeX
-        uses: dante-ev/latex-action@edge
-        with:
-          root_file: Problem 3/solution3.tex
-          
-      - name: Move files
         run: |
-          rm -rf build && mkdir build
-          mv *.asy build/
-          mv *.pdf build/
+          cd 'Problem 3'
+          latexmk -pdf -f
           
       - name: Commit files
         run: |
