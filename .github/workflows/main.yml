@@ -42,13 +42,26 @@ jobs:
           sudo apt-get install biber
           sudo apt-get install cm-super
           sudo apt-get install lmodern
+          sudo apt-get update
+          sudo apt-get upgrade
+      
+      - name: Run Python scripts
+        run: |
+          python3 -m pip install --upgrade pip
+          python3 -m pip install --upgrade sympy
+          cd 'Problem 3'
+          python3 transition.py
+          python3 transition_2.py
+          python3 transition_3.py
+          python3 transition_4.py
+          python3 transition_5.py
 
       # Run latexmk
       - name: LaTeX
         run: |
           cd 'Problem 3'
           rm 'solution3-1.tex'
-          latexmk -pdf -f
+          latexmk -pdf -f solution3.tex
           
       - name: Commit files
         run: |

@@ -8,6 +8,8 @@
 \rhead{Last Updated: \today}
 \lhead{$\RR^n$ Bonus Problems}
 
+\newcommand\scalemath[2]{\scalebox{#1}{\mbox{\ensuremath{\displaystyle #2}}}} %https://tex.stackexchange.com/a/43067
+
 \begin{document}
 
 \begin{center}
@@ -76,5 +78,38 @@ We wish to find the expected value of the number of turns in the game, which we 
 The dice is truly random, so there is no upper bound on $N$.
 We note that this game is really akin to a Markov chain, in that it doesn't matter what the past states are.
 
+
+\subsection{Notation}
+Let $X_i \in [0, 36]$ be the current state, or position of the traveler.
+The traveler always starts at position $X_0=0$.
+The final state must be $X_N \in [19, 36]$.
+
+\subsection{Transition Matrix}
+Now that we've defined some notation, we can write the transition matrix $P$
+Because a 37x37 matrix is cumbersome, we combine the states [19, 36] into a 
+
+\input{transition3.tex}
+
+We also write the matrix $Q$, which doesn't have any absorbing states.
+
+\input{transition3_2.tex}
+
+$N = \pars{I - Q}^{-1}$ is known as the fundamental matrix of $P$.
+
+\input{transition3_3.tex}
+
+\input{transition3_4.tex}
+
+In order to get the expected number of steps, we find $t_0$, where
+
+$$
+\bm{t} = N \bm{1}
+$$
+
+Here, $\bm{1}$ is a vector whose entries are all 1.
+
+\input{transition3_5.tex}
+
+Finally, we see that $t_0 = \boxed{\frac{213}{29} \approx 7.345}$
 
 \end{document}
