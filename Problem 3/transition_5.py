@@ -12,7 +12,7 @@ f.write('\n')
 f.write(r'\bm{t} = ')
 f.write('\n')
 
-f.write(r'\left ( \scalemath{0.6} { \begin{array}{c}')
+f.write(r'\left ( \scalemath{0.55} { \begin{array}{c}')
 f.write('\n')
 
 for i in range(19):
