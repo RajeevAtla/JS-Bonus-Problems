@@ -1,11 +1,12 @@
 def func(a, b):
-    #a is state 1
-    #b is state 2
-    #this is horrible code but it works! :^)
-    s = r'\frac{1}{6}'
-    s1 = r'\frac{1}{2}'
-    s2 = r'\frac{1}{3}'
-    if a == 19 and b != 19: return 0
+    # a is state 1
+    # b is state 2
+    # this is horrible code but it works! :^)
+    s = r"\frac{1}{6}"
+    s1 = r"\frac{1}{2}"
+    s2 = r"\frac{1}{3}"
+    if a == 19 and b != 19:
+        return 0
     if a == b:
         if a == 19:
             return 1
@@ -43,8 +44,9 @@ def func(a, b):
             else:
                 return s1
         else:
-            if b == 0: return 0
-            elif b in [a-1, a+1]:
+            if b == 0:
+                return 0
+            elif b in [a - 1, a + 1]:
                 return s
             elif a == 7 and b == 18:
                 return s
@@ -52,42 +54,43 @@ def func(a, b):
                 return s
             else:
                 if a % 2 == 1:
-                    arr = list(map(int, [0.5*a -3.5, 0.5*a -2.5]))
+                    arr = list(map(int, [0.5 * a - 3.5, 0.5 * a - 2.5]))
                     if b in arr:
                         return s
                     else:
                         return 0
                 else:
-                    if b == int(0.5*a - 3):
+                    if b == int(0.5 * a - 3):
                         return s
                     else:
                         return 0
 
-f = open('transition3.tex', 'w')
 
-f.write(r'$$')
-f.write('\n')
-f.write('P = ')
-f.write('\n')
+f = open("transition3.tex", "w")
 
-f.write(r'\left ( \scalemath{0.4} { \begin{array}{cccccccccccccccccccc}')
-f.write('\n')
+f.write(r"$$")
+f.write("\n")
+f.write("P = ")
+f.write("\n")
+
+f.write(r"\left ( \scalemath{0.4} { \begin{array}{cccccccccccccccccccc}")
+f.write("\n")
 
 for i in range(20):
-    s = '\t'
+    s = "\t"
     for j in range(20):
-        s += 'p_{{ {}, {} }} = '.format(i, j)
+        s += "p_{{ {}, {} }} = ".format(i, j)
         s += str(func(i, j))
-        s += ' & '
+        s += " & "
     s = s[:-3]
     f.write(s)
-    f.write(r'\\')
-    f.write('\n')
+    f.write(r"\\")
+    f.write("\n")
 
-f.write(r'\end{array} } \right)')
+f.write(r"\end{array} } \right)")
 
-f.write('\n')
-f.write(r'$$')
-f.write('\n')
+f.write("\n")
+f.write(r"$$")
+f.write("\n")
 
 f.close()
