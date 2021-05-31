@@ -11,7 +11,7 @@ def get_N():
             elif func(i, j) == r"\frac{1}{2}":
                 P[i, j] = Rational(1, 2)
             elif func(i, j) == r"\frac{1}{3}":
-                p[i, j] = Rational(1, 3)
+                P[i, j] = Rational(1, 3)
             else:
                 P[i, j] = func(i, j)
     P = eye(19) - P
