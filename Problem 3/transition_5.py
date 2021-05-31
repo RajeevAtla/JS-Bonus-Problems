@@ -1,4 +1,4 @@
-from sympy import *
+from sympy import ones
 from transition_4 import get_N, parse_frac
 
 P = get_N()
