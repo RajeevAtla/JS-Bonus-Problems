@@ -1,19 +1,12 @@
 from transition import func
 
 
+
 def func_2(a, b):
-    try:
-        return int(1 - func(a, b))
-    except:
-        s = r"\frac{1}{6}"
-        s1 = r"\frac{1}{2}"
-        s3 = r"\frac{1}{3}"
-        if func(a, b) == s:
-            return s
-        elif func(a, b) == s1:
-            return s1
-        else:
-            return s3
+    if(a == b):
+        return 1-func(a, b)
+    else:
+        return func(a, b)
 
 
 f = open("transition3_3.tex", "w")
