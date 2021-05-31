@@ -1,4 +1,4 @@
-from sympy import *
+from sympy import zeroes, Rational, eye
 from transition import func
 
 
