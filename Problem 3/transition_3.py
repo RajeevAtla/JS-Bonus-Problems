@@ -1,7 +1,5 @@
 from transition import func
 
-
-
 def func_2(a, b):
     if(a == b):
         return 1-func(a, b)
