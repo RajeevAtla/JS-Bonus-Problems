@@ -1,6 +1,5 @@
-from sympy import eye, Rational, simplify, zeros
+from sympy import Rational, eye, simplify, zeros
 from transition import func
-
 
 def get_N():
     P = zeros(19, 19)
