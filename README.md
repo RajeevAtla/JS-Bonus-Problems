@@ -6,6 +6,4 @@
 
 Continuously integrated using GitHub Actions!
 
-
-- Builds and linting run daily 😺
-
+-   Builds and linting run daily 😺
