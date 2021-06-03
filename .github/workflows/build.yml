@@ -53,6 +53,14 @@ jobs:
           cd sympy
           sudo python3 setupegg.py develop
       
+      - name: Build CPython from sources
+        run: |
+          git clone https://github.com/python/cpython.git
+          cd cpython
+          make
+          make test
+          sudo make install
+      
       - name: Run Python scripts
         run: |
           cd 'Problem 3'
@@ -72,6 +80,7 @@ jobs:
       - name: Commit files
         run: |
           sudo rm -rf sympy
+          sudo rm -rf cpython
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add .
