@@ -68,7 +68,7 @@ jobs:
           python3 transition_3.py
           python3 transition_4.py
           python3 transition_5.py
-          sudo rm __pycache__
+          sudo rm -rf __pycache__
 
       # Run latexmk
       - name: LaTeX
