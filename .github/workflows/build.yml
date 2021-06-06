@@ -44,14 +44,8 @@ jobs:
           sudo apt-get install lmodern
           sudo apt-get update
           sudo apt-get upgrade
-
-      - name: Build SymPy from source
-        run: |
-          git clone https://github.com/sympy/sympy.git
-          cd sympy
-          sudo python3 setupegg.py develop
-      
-      - name: Build CPython from sources
+          
+      - name: Build CPython from source
         run: |
           git clone https://github.com/python/cpython.git
           cd cpython
@@ -59,7 +53,13 @@ jobs:
           make
           make test
           sudo make install
-      
+
+      - name: Build SymPy from source
+        run: |
+          git clone https://github.com/sympy/sympy.git
+          cd sympy
+          sudo python3 setupegg.py develop
+
       - name: Run Python scripts
         run: |
           cd 'Problem 3'
