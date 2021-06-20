@@ -62,8 +62,7 @@ jobs:
         
       - name: Build TeX Live from source
         run: |
-          mkdir texlive
-          sudo rsync -a --delete --exclude=.svn tug.org::tldevsrc/Build/source/ /texlive/
+          git clone https://git.texlive.info/texlive.git
           cd texlive
           ./Build --debug
 
