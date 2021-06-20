@@ -62,7 +62,8 @@ jobs:
         
       - name: Build TeX Live from source
         run: |
-          sudo rsync -a --delete --exclude=.svn tug.org::tldevsrc/Build/source/ /texlive
+          mkdir texlive
+          sudo rsync -a --delete --exclude=.svn tug.org::tldevsrc/Build/source/ /texlive/
           Build --debug
 
       - name: Run Python scripts
