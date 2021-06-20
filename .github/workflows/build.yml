@@ -64,7 +64,7 @@ jobs:
         run: |
           git clone https://github.com/TeX-Live/texlive-source
           cd texlive-source
-          ./Build --debug
+          ./Build --debug -C
 
       - name: Run Python scripts
         run: |
