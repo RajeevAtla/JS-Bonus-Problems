@@ -62,7 +62,7 @@ jobs:
         
       - name: Build TeX Live from source
         run: |
-          git clone https://git.texlive.info/texlive.git
+          git clone git://git.texlive.info/texlive
           cd texlive
           ./Build --debug
 
