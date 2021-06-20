@@ -62,8 +62,8 @@ jobs:
         
       - name: Build TeX Live from source
         run: |
-          git clone git://git.texlive.info/texlive
-          cd texlive
+          git clone https://github.com/TeX-Live/texlive-source
+          cd texlive-source
           ./Build --debug
 
       - name: Run Python scripts
