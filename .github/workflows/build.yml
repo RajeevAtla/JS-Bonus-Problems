@@ -64,7 +64,7 @@ jobs:
         run: |
           sudo rsync -a --delete --exclude=.svn tug.org::tldevsrc/Build/source/ /texlive/
           cd texlive
-          Build --debug
+          ./Build --debug
 
       - name: Run Python scripts
         run: |
