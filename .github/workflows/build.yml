@@ -84,6 +84,7 @@ jobs:
           cd 'Problem 3'
           rm 'solution3-1.tex'
           latexmk -pdf -f solution3.tex
+          latexmk -c
           
       - name: Commit files
         run: |
