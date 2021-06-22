@@ -72,6 +72,7 @@ jobs:
       # Run latexmk
       - name: LaTeX
         run: |
+          sudo apt-get install latexmk
           cd 'Problem 3'
           rm 'solution3-1.tex'
           latexmk -pdf -f solution3.tex
