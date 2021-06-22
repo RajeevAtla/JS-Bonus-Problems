@@ -34,18 +34,11 @@ jobs:
           sudo apt-get install ghostscript
           sudo apt-get install tree
           sudo apt-get install freeglut3
-          sudo apt-get install texlive-latex-recommended
-          sudo apt-get install texlive-latex-extra
-          sudo apt-get install texlive-science
-          sudo apt-get install texlive-bibtex-extra
-          sudo apt-get install latexmk
           sudo apt-get install biber
-          sudo apt-get install cm-super
-          sudo apt-get install lmodern
-          sudo apt-get install libxaw7-dev #to build latex
-          sudo apt-get install libxaw3dxft8-dev #to build latex
+          sudo apt-get install libxaw7-dev libxaw3dxft8-dev# to build latex
           sudo apt-get update
-          sudo apt-get upgrade
+          sudo apt-get upgrade -y
+          sudo apt-get autoremove
           
       - name: Build CPython from source
         run: |
