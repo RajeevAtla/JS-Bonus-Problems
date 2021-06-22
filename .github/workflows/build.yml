@@ -43,7 +43,7 @@ jobs:
         run: |
           git clone https://github.com/python/cpython.git
           cd cpython
-          ./configure --with-pydebug --enable-optimizations
+          ./configure --with-pydebug --enable-optimizations --with-lto
           make -s -j
           make test
           sudo make install
