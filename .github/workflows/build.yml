@@ -45,7 +45,6 @@ jobs:
           cd cpython
           ./configure --with-pydebug --enable-optimizations --with-lto
           make -s -j
-          make test
           sudo make install
 
       - name: Build SymPy from source
