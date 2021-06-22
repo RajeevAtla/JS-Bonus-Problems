@@ -32,10 +32,9 @@ jobs:
         run: |
           sudo apt-get install asymptote
           sudo apt-get install ghostscript
-          sudo apt-get install tree
           sudo apt-get install freeglut3
-          sudo apt-get install biber
-          sudo apt-get install libxaw7-dev libxaw3dxft8-dev# to build latex
+          sudo apt-get install libxaw7-dev
+          sudo apt-get install libxaw3dxft8-dev
           sudo apt-get update
           sudo apt-get upgrade -y
           sudo apt-get autoremove
