@@ -30,11 +30,12 @@ jobs:
 
       - name: Install packages
         run: |
+          sudo apt-get update
+          sudo apt-get upgrade -y
           sudo apt-get install asymptote
           sudo apt-get install ghostscript
           sudo apt-get install freeglut3
-          sudo apt-get install libxaw7-dev
-          sudo apt-get install libxaw3dxft8-dev
+          sudo apt-get install texlive-full
           sudo apt-get update
           sudo apt-get upgrade -y
           sudo apt-get autoremove
@@ -52,12 +53,6 @@ jobs:
           git clone https://github.com/sympy/sympy.git
           cd sympy
           sudo python3 setupegg.py develop
-        
-      - name: Build TeX Live from source
-        run: |
-          git clone https://github.com/TeX-Live/texlive-source
-          cd texlive-source
-          ./Build --debug -C
 
       - name: Run Python scripts
         run: |
@@ -82,7 +77,6 @@ jobs:
         run: |
           sudo rm -rf sympy
           sudo rm -rf cpython
-          sudo rm -rf texlive-source
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git config --local user.name "github-actions[bot]"
           git add .
