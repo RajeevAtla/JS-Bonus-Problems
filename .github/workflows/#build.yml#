@@ -1,0 +1,81 @@
+name: Compile LaTeX
+
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+  schedule:
+    - cron: 0 * * * *
+  build:
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - uses: actions/checkout@master
+        with: 
+          persistent-credentials: false
+          fetch-depth: 0
+
+      - name: Install packages
+        run: |
+          sudo apt-get update
+          sudo apt-get upgrade -y
+          sudo apt-get install asymptote
+          sudo apt-get install ghostscript
+          sudo apt-get install freeglut3
+          sudo apt-get install texlive-full
+          sudo apt-get update
+          sudo apt-get upgrade -y
+          sudo apt-get autoremove
+          
+      - name: Build CPython from source
+        run: |
+          git clone https://github.com/python/cpython.git
+          cd cpython
+          ./configure --with-pydebug --enable-optimizations --with-lto
+          make -s -j
+          sudo make install
+
+      - name: Build SymPy from source
+        run: |
+          git clone https://github.com/sympy/sympy.git
+          cd sympy
+          sudo python3 setupegg.py develop
+
+      - name: Run Python scripts
+        run: |
+          cd 'Problem 3'
+          python3 transition.py
+          python3 transition_2.py
+          python3 transition_3.py
+          python3 transition_4.py
+          python3 transition_5.py
+          sudo rm -rf __pycache__
+
+      # Run latexmk
+      - name: LaTeX
+        run: |
+          sudo apt-get install latexmk
+          cd 'Problem 3'
+          rm 'solution3-1.tex'
+          latexmk -pdf -f solution3.tex
+          latexmk -c
+          
+      - name: Commit files
+        run: |
+          sudo rm -rf sympy
+          sudo rm -rf cpython
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "add compiled files"
+
+      - name: Push
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
