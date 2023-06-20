@@ -33,19 +33,10 @@ jobs:
           sudo apt-get upgrade -y
           sudo apt-get autoremove
           
-      - name: Build CPython from source
-        run: |
-          git clone https://github.com/python/cpython.git
-          cd cpython
-          ./configure --with-pydebug --enable-optimizations --with-lto
-          make -s -j
-          sudo make install
 
-      - name: Build SymPy from source
+      - name: Build SymPy 
         run: |
-          git clone https://github.com/sympy/sympy.git
-          cd sympy
-          python -m pip install -e .
+          pip install sympy
 
       - name: Run Python scripts
         run: |
