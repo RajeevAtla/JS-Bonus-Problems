@@ -45,7 +45,7 @@ jobs:
         run: |
           git clone https://github.com/sympy/sympy.git
           cd sympy
-          sudo python3 setupegg.py develop
+          python -m pip install -e .
 
       - name: Run Python scripts
         run: |
